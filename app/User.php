@@ -27,6 +27,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /* Mutadores de bd para guardar y consultar*/
+    public function setNameAttribute($value){
+        this->attributes['name'] = strtolower($value);
+    }
+
+    public function setEmailAttribute($value){
+        this->attributes['email'] = strtolower($value);
+    }
+
+    public function getNameAttribute($value){
+        return ucfirst($valor);
+    }
 
     /**
      * The attributes that should be cast to native types.
